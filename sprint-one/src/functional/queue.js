@@ -9,7 +9,7 @@ var Queue = function() {
 
   someInstance.enqueue = function(value) {
     if (countAdded === 0) {
-      storage[0] = value;
+      storage[countAdded] = value;
     } else {
       storage[countAdded] = value;
     }
