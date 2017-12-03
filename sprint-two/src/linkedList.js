@@ -9,7 +9,7 @@ var LinkedList = function() {
       this.head = node;
       this.tail = node;
     } else {
-      this.head.next = node;
+      this.tail.next = node;
       this.tail = node;
     }
   };
@@ -21,12 +21,17 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-    if (this.head.next === null) {
-      return this.head.value === target;
-    } else {
-      return this.head.value === target ||
-      this.head.next.value === target;
-    }
+    var foundTarget = false;
+
+    var findTarget = function(target, node) {
+      if (node.value === target) {
+        foundTarget = true;
+      } else if (node.next) {
+        findTarget(target, node.next);
+      }
+    };
+    findTarget(target, this.head);
+    return foundTarget;
   };
 
   return list;
@@ -47,3 +52,11 @@ var Node = function(value) {
  * list.removeHead: O(1)
  * list.contains: O(n)
  */
+
+
+
+
+
+
+
+

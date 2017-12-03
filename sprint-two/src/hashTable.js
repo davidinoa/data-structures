@@ -12,6 +12,9 @@ HashTable.prototype.insert = function(k, v) {
   // if (this._ratio >= 0.75) {
   //   this._limit *= 2;
   // }
+  if (typeof k !== 'string') {
+    return undefined;
+  }
   var index = getIndexBelowMaxForKey(k, this._limit);
 
   if (!Array.isArray(this._storage[index])) {

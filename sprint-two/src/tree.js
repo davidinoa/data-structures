@@ -26,6 +26,19 @@ treeMethods.addChild = function(value) {
   this.children.push(newChild);
 };
 
+treeMethods.removeChild = function(index) {
+  // var findTarget = function(tree, target) {
+  //   if (tree.value === target) {
+  //     tree
+  //   } else {
+  //     for (var i = 0; i < tree.children.length; i++) {
+  //       findTarget(tree.children[i], target);
+  //     }
+  //   }
+  // };
+  this.children.splice(index, 1);
+};
+
 treeMethods.contains = function(target) {
   var isContained = false;
 
