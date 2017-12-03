@@ -41,4 +41,25 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+  it('should be able to add great grand-child', function() {
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.children[0].addChild(7);
+    tree.children[0].children[0].addChild(8);
+    expect(tree.contains(7)).to.equal(true);
+    expect(tree.contains(8)).to.equal(true);
+  });
+
+  it('should be able to remove child', function() {
+    tree.addChild(5);
+    tree.removeChild(0);
+    expect(tree.contains(5)).to.equal(false);
+  });
+
+  it('should be able to remove grand-child', function() {
+    tree.addChild(5);
+    tree.children[0].addChild(4);
+    tree.children[0].removeChild(0);
+    expect(tree.contains(4)).to.equal(false);
+  });
 });
